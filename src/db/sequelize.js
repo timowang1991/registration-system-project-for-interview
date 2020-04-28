@@ -7,7 +7,7 @@ const {
     MYSQL_PORT,
 } = process.env;
 
-const sequelize = new Sequelize(`mysql://${MYSQL_USERNAME}:${MYSQL_ROOT_PASSWORD}@${MYSQL_HOSTNAME}:${MYSQL_PORT}`);
+const sequelize = new Sequelize(`mysql://${MYSQL_USERNAME}:${MYSQL_ROOT_PASSWORD}@${MYSQL_HOSTNAME}:${MYSQL_PORT}/dev`);
 
 sequelize
     .authenticate()
