@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node",
     "build": "babel src/index.js -d dist",
-    "start": "npm run build && node dist/index",
+    "start": "node dist/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
