@@ -15,7 +15,7 @@ const User = sequelize.define('user', {
     password: {
         type: Sequelize.STRING,
     },
-    type: {
+    provider: {
         type: Sequelize.ENUM('email', 'google', 'facebook'),
         unique: 'email_type',
         allowNull: false,
