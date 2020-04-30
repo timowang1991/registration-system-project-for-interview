@@ -1,6 +1,7 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
+import generator from 'generate-password';
 
 import User from '../models/User';
 
@@ -33,6 +34,10 @@ passport.use(new GoogleStrategy(
             },
             defaults: {
                 name: displayName,
+                coupon: generator.generate({
+                    length: 6,
+                    numbers: true,
+                }).toUpperCase(),
             },
         }).then(([user]) => {
             cb(null, { profile, dbUser: user });
@@ -61,6 +66,10 @@ passport.use(new FacebookStrategy(
             },
             defaults: {
                 name: displayName,
+                coupon: generator.generate({
+                    length: 6,
+                    numbers: true,
+                }).toUpperCase(),
             },
         }).then(([user]) => {
             cb(null, { profile, dbUser: user });
