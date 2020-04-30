@@ -5,12 +5,14 @@ const router = express.Router();
 
 router.get('/callback/google', passport.authenticate('google', { failureRedirect: '/signup/google' }),
     (req, res) => {
-        res.redirect('/');
+        const user = req.user.dbUser;
+        res.header({ token: user.generateAuthToken() }).send('google authentication complete');
     });
 
 router.get('/callback/facebook', passport.authenticate('facebook', { failureRedirect: '/signup/facebook' }),
     (req, res) => {
-        res.redirect('/');
+        const user = req.user.dbUser;
+        res.header({ token: user.generateAuthToken() }).send('facebook authentication complete');
     });
 
 export default router;

@@ -34,8 +34,8 @@ passport.use(new GoogleStrategy(
             defaults: {
                 name: displayName,
             },
-        }).then((user) => {
-            cb(null, { profile, dbUser: user[0] });
+        }).then(([user]) => {
+            cb(null, { profile, dbUser: user });
         }).catch((err) => {
             cb(err);
         });
@@ -62,8 +62,8 @@ passport.use(new FacebookStrategy(
             defaults: {
                 name: displayName,
             },
-        }).then((user) => {
-            cb(null, { profile, dbUser: user[0] });
+        }).then(([user]) => {
+            cb(null, { profile, dbUser: user });
         }).catch((err) => {
             cb(err);
         });
