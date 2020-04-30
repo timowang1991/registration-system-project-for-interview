@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import passport from './auth/passport';
-import './db/sequelize';
 
 import signup from './routers/signup';
 import login from './routers/login';
