@@ -5,9 +5,6 @@ const router = express.Router();
 
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-router.get('/callback/google', passport.authenticate('google', { failureRedirect: '/signup/google' }),
-    (req, res) => {
-        res.redirect('/');
-    });
+router.get('/facebook', passport.authenticate('facebook'));
 
 export default router;
