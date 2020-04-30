@@ -9,7 +9,7 @@ import auth from './routers/auth';
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(passport.initialize());
 
 app.use('/signup', signup);
